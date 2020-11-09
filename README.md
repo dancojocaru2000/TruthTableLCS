@@ -45,6 +45,40 @@ A
 
 Spaces can be used between elements.
 
+## Usage
+
+The program should be ran using Python 3.6 or higher, from the command line.
+
+```powershell
+# Windows
+python main.py
+```
+
+```bash
+# macOS or Linux
+python3 main.py
+# Or, if the main.py file is made executable:
+./main.py
+```
+
+The program will get the proposition from standard input and will print the truth table to standard output.
+
+If the standard output is piped to a file or if the `NO_COLOR` environment variable if set, colors will be disabled.
+
+**On Windows, it is highly recommended to use a modern terminal, such as [Windows Terminal](https://aka.ms/terminal), [cmder](https://cmder.net/), [Hyper](https://hyper.is/) or others.** If not, colors will not be shown, and instead wrong characters will be displayed.
+
+If installing an alternative terminal is not possible, please disable colors as follows:
+
+```cmd
+REM From cmd:
+SET NO_COLOR=1
+```
+
+```powershell
+# From powershell:
+$Env:NO_COLOR = 1
+```
+
 ## Screenshot
 
 ![Image showing the execution of the program in Windows Terminal](screenshot.png)

@@ -187,7 +187,7 @@ class LogicProposition:
 # # 	print("T" if l.evaluate(values) else "F")
 # # 	print()
 
-def print_table(table, max_width):
+def print_table(table, max_width, print_color=False):
 	def color(c, s):
 		esc = chr(27)
 		return esc + "[" + str(c) + "m" + str(s) + esc + "[0m"
@@ -196,9 +196,9 @@ def print_table(table, max_width):
 		max_width = [10] * len(table[0])
 	for line in table:
 		for i, item in zip(range(100000), line):
-			if item == 'T':
+			if print_color and item == 'T':
 				print(color(92, str(item).rjust(max_width[i])), end=" | ")
-			elif item == 'F':
+			elif print_color and item == 'F':
 				print(color(91, str(item).rjust(max_width[i])), end=" | ")
 			else:
 				print(str(item).rjust(max_width[i]), end=" | ")
