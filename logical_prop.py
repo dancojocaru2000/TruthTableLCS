@@ -63,6 +63,8 @@ class LogicProposition:
 
 	def __init__(self, proposition):
 		if type(proposition) == type(""):
+			proposition = proposition.strip()
+
 			if len(proposition) == 1:
 				self.prop = proposition
 				self.atoms = set([proposition])
