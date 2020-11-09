@@ -4,7 +4,7 @@
 
 This program was created in order to help students from year 1 create truth tables for logic propositions.
 
-## Logical Proposition
+## Logic Proposition
 
 A logic proposition is defined as follows:
 
@@ -47,7 +47,7 @@ Spaces can be used between elements.
 
 ## Usage
 
-The program should be ran using Python 3.6 or higher, from the command line.
+The program should be run using Python 3.6 or higher, from the command line.
 
 ```powershell
 # Windows
@@ -57,13 +57,13 @@ python main.py
 ```bash
 # macOS or Linux
 python3 main.py
-# Or, if the main.py file is made executable:
+# Or, if the main.py file is executable:
 ./main.py
 ```
 
 The program will get the proposition from standard input and will print the truth table to standard output.
 
-If the standard output is piped to a file or if the `NO_COLOR` environment variable if set, colors will be disabled.
+If the standard output is piped to a file or if the `NO_COLOR` environment variable is set, colors will be disabled.
 
 **On Windows, it is highly recommended to use a modern terminal, such as [Windows Terminal](https://aka.ms/terminal), [cmder](https://cmder.net/), [Hyper](https://hyper.is/) or others.** If not, colors will not be shown, and instead wrong characters will be displayed.
 
