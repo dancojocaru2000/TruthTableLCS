@@ -61,7 +61,7 @@ class LogicProposition:
 	def __str__(self):
 		return logic_prop_to_str(self.prop)
 
-	def __init__(self, proposition):
+	def __init__(self, proposition, atoms=None):
 		if type(proposition) == type(""):
 			proposition = proposition.strip()
 
@@ -116,16 +116,18 @@ class LogicProposition:
 			self.prop = create_prop(iter(it))
 		else:
 			self.prop = proposition
-			self.atoms = set()
-			def gen_atoms(prop):
-				if is_atom(prop):
-					self.atoms.add(prop)
-				elif len(prop) == 2:
-					gen_atoms(prop[1])
-				elif len(prop) == 3:
-					gen_atoms(prop[0])
-					gen_atoms(prop[2])
-			gen_atoms(self.prop)
+			self.atoms = atoms
+			if self.atoms is None:
+				self.atoms = set()
+				def gen_atoms(prop):
+					if is_atom(prop):
+						self.atoms.add(prop)
+					elif len(prop) == 2:
+						gen_atoms(prop[1])
+					elif len(prop) == 3:
+						gen_atoms(prop[0])
+						gen_atoms(prop[2])
+				gen_atoms(self.prop)
 
 		self.atoms = list(sorted(list(self.atoms)))
 
@@ -170,7 +172,7 @@ class LogicProposition:
 				yield from gen(prop[0])
 				yield from gen(prop[2])
 
-			yield LogicProposition(prop)
+			yield LogicProposition(prop, self.atoms)
 		return gen(self.prop)
 
 # LP = LogicProposition

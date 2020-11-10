@@ -1,4 +1,4 @@
-#!/bin/env python3
+#!/usr/bin/env python3
 
 from logical_prop import LogicProposition, gen_table, get_max_width, print_table
 from sys import stdin
