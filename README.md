@@ -91,6 +91,44 @@ SET NO_COLOR=1
 $Env:NO_COLOR = 1
 ```
 
+## Generating spreadsheets
+
+In order to generate spreadsheets in the `.xlsx` format, the `openpyxl` package is required. The best way to install it is to [install `pipenv`](https://pipenv.pypa.io/en/latest/install/#installing-pipenv) and then run the following commands to run the program:
+
+```powershell
+# Windows
+pipenv install
+pipenv run python excel.py file.xlsx
+```
+
+```bash
+# macOS/Linux
+pipenv install
+pipenv run python3 excel.py file.xlsx
+```
+
+If you prefer not to install `pipenv`, manually install `openpyxl` from `pip` and then manually run the `excel.py` file, like so:
+
+```powershell
+# Windows
+
+# Install openpyxl
+pip install --user openpyxl
+
+# Run the program
+python excel.py file.xlsx
+```
+
+```bash
+# macOS/Linux
+
+# Install openpyxl
+pip3 install --user openpyxl
+
+# Run the program
+./excel.py file.xlsx
+```
+
 ## Screenshot
 
 ![Execution of the program in Windows Terminal, in powershell](screenshot1.png)
