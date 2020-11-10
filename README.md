@@ -87,4 +87,8 @@ $Env:NO_COLOR = 1
 
 ## Screenshot
 
-![Image showing the execution of the program in Windows Terminal](screenshot.png)
+![Execution of the program in Windows Terminal, in powershell](screenshot1.png)
+
+![Execution of the program in bash in Ubuntu](screenshot2.png)
+
+![Piping the output of the program in a file in bash in Ubuntu](screenshot3.png)
