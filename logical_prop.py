@@ -190,6 +190,10 @@ class LogicProposition:
 # # 	print()
 
 def print_table(table, max_width, print_color=False):
+	from sys import stdout
+	from io import TextIOWrapper
+	wrapped_stdout = TextIOWrapper(stdout.buffer, encoding='utf-8', line_buffering=True)
+
 	def color(c, s):
 		esc = chr(27)
 		return esc + "[" + str(c) + "m" + str(s) + esc + "[0m"
@@ -199,12 +203,14 @@ def print_table(table, max_width, print_color=False):
 	for line in table:
 		for i, item in zip(range(100000), line):
 			if print_color and item == 'T':
-				print(color(92, str(item).rjust(max_width[i])), end=" | ")
+				print(color(92, str(item).rjust(max_width[i])), end=" | ", file=wrapped_stdout)
 			elif print_color and item == 'F':
-				print(color(91, str(item).rjust(max_width[i])), end=" | ")
+				print(color(91, str(item).rjust(max_width[i])), end=" | ", file=wrapped_stdout)
 			else:
-				print(str(item).rjust(max_width[i]), end=" | ")
-		print()
+				print(str(item).rjust(max_width[i]), end=" | ", file=wrapped_stdout)
+		print(file=wrapped_stdout)
+
+	wrapped_stdout.flush()
 
 def gen_table(prop):
 	table = []
