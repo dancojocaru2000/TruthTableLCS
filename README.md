@@ -69,6 +69,12 @@ In order to save the output of the command to a text file, use the piping mechan
 python3 main.py > file.txt
 ```
 
+**In PowerShell, however, piping does not support Unicode by default. Therefore, it must be done like so:**
+
+```powershell
+python main.py | Out-File 'file.txt' -Encoding OEM
+```
+
 If the standard output is piped to a file or if the `NO_COLOR` environment variable is set, colors will be disabled.
 
 **On Windows, it is highly recommended to use a modern terminal, such as [Windows Terminal](https://aka.ms/terminal), [cmder](https://cmder.net/), [Hyper](https://hyper.is/) or others.** If not, colors will not be shown, and instead wrong characters will be displayed.
