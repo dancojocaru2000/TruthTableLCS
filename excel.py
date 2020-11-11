@@ -32,6 +32,10 @@ for row_index, line in zip(icount(1), table):
 			item = int(item)
 		except (ValueError, TypeError):
 			item = str(item)
+			if item == "T":
+				item = True
+			elif item == "F":
+				item = False
 
 		cell = sheet[column_name + str(row_index)]
 		cell.value = item
@@ -39,11 +43,15 @@ for row_index, line in zip(icount(1), table):
 		if row_index > 1 and column_name != 'A':
 			from openpyxl.styles import colors, Font, Color
 			ft = Font()
-			if item == "T":
+			if item is True:
 				ft = Font(color=Color(rgb='00009242'))
-			elif item == "F":
+			elif item is False:
 				ft = Font(color=Color(rgb='00FF0000'))
 			cell.font = ft
+
+		if row_index == 1:
+			from openpyxl.styles.alignment import Alignment
+			cell.alignment = Alignment(horizontal='center')
 
 sheet.freeze_panes = sheet['B2']
 
